@@ -67,14 +67,14 @@ await doc.table(
       
       [
         "Data de início/Start Date ",
-        "Coluna 2", 
+        "Horário de início/Start Time ", 
         { rowSpan: 2, text: "Terra/Land ( )" },
         { rowSpan: 2, text: "Mar/Sea  ( )" },
       ],
 
        [
-        "Coluna 1",
-        "Coluna 2", 
+        "Data de término/End Date ",
+        "Horário de término/End Time ", 
       ],
 
       [
@@ -82,18 +82,18 @@ await doc.table(
       ],
       
       [
-      { colSpan: 3, text: "Razão social: ________________" },
-      "CNPJ: ________________",
+      { colSpan: 3, text: "Razão social: ______" },
+      "CNPJ: ______",
       ],
 
       [
-      { colSpan: 2, text: "Nome do contato: ________________" },
-      "Telefone para contato: ________________",
-      "Email para contato: ________________",
+      { colSpan: 2, text: "Nome do contato: ______" },
+      "Telefone para contato: ______",
+      "Email para contato: ______",
       ],
    
       [
-        { colSpan: 4, text: "MTR Relacionado:" },
+        { colSpan: 4, text: "MTR Relacionado: ______" },
       ]
     ]
   },
@@ -102,50 +102,144 @@ await doc.table(
 
 doc.moveDown(2);
 
+await doc.table(
+  {
+    headers: ["", "", "", "", ""], // número de colunas
+    columnStyles: ["*", "*", "*", "*","*"], // estilos das colunas
+    data: [
+      [
+      { colSpan: 5, text: "Tipo e quantidade de resíduos coletados:" },
+      ],
+
+      [
+        "Classe/Class",
+        "Unidade/Unit (kg, m3, l)",
+        "Quantidade/Amount",
+        { colSpan: 2, text: "Observações (embalagem, armazenamento temporário, etc.)" },
+      ],
+
+      [
+        ".",
+        ".",
+        ".",
+        { colSpan: 2, text: "." },
+      ],
+
+      [
+        ".",
+        ".",
+        ".",
+        { colSpan: 2, text: "." },
+      ],
+
+      [
+        ".",
+        ".",
+        ".",
+        { colSpan: 2, text: "." },
+      ],
+
+      [
+        ".",
+        ".",
+        ".",
+        { colSpan: 2, text: "." },
+      ],
+
+      [
+        ".",
+        ".",
+        ".",
+        { colSpan: 2, text: "." },
+      ],
+
+      [
+        ".",
+        ".",
+        ".",
+        { colSpan: 2, text: "." },
+      ],
+
+      [
+        ".",
+        ".",
+        ".",
+        { colSpan: 2, text: "." },
+      ],
+
+      [
+        ".",
+        ".",
+        ".",
+        { colSpan: 2, text: "." },
+      ],
+
+      [
+        ".",
+        ".",
+        ".",
+        { colSpan: 2, text: "." },
+      ],
+
+      [
+        ".",
+        ".",
+        ".",
+        { colSpan: 2, text: "." },
+      ],
+    ]
+  },
+    { hideHeader: true }
+);
+
+
+doc.moveDown(2);
 
 await doc.table(
   {
-    headers: ["", "", ""], // 👈 NECESSÁRIO
-    columnStyles: [200, "*", "*"],
+    headers: ["", "", "", ""],
+    columnStyles: [200, "*", "*", "*"],
     data: [
       [
-        { colSpan: 2, text: "Header with Colspan = 2" },
-        "Header 3",
+        { colSpan: 4, text: "Destinação de Resíduos/Waste Disposal" },
       ],
-      ["Header 1"],
-      ["Sample value 1", "Sample value 2", "Sample value 3"],
-        
-      [
-        {
-          rowSpan: 3,
-          text:
-            "rowspan set to 3\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor",
-        },
-        "Sample value 2",
-        "Sample value 3",
-      ],
-      ["Sample value 2", "Sample value 3"],
-      ["Sample value 2", "Sample value 3"],
 
       [
-        "Sample value 1",
-        {
-          colSpan: 2,
-          rowSpan: 2,
-          text: "Both:\nrowspan and colspan\ncan be defined at the same time",
-        },
+        { colSpan: 2, text: "Razão social: ______" },
+        "Incrição estaual: ______",
+        "CNPJ: ______",
       ],
-      ["Sample value 1"],
+
+      [
+        { colSpan: 2, text: "Licença IBAMA ou OEMA: ______" },
+        { colSpan: 2, text: "Data de vencimento: ______" },
+      ],
+     
+      [
+        { colSpan: 2, text: "Endereço: ______" },
+        "Município/UF: ______",
+        "CEP: ______",
+      ],
+
+      [
+        { colSpan: 2, text: "Email para contato: ______" },
+        { colSpan: 2, text: "Telefone para contato: ______" },
+      ],
+
+      [
+        { colSpan: 2, text: "Responsável técnico: ______" },
+        { colSpan: 2, text: "Registro profissional: ______" },
+      ],
     ],
   },
   {
-    hideHeader: true, // 👈 ESSE É O SEGREDO PARA NÃO APARECER O HEADER
+    hideHeader: true, 
   }
 );
 
 doc.moveDown(2);
 
-const assinaturas = 'RESPONSÁVEL PELA EMPRESA COLETORA \nNOME: __________________________________________________\nCPF: __________________________________________________\n\nREPRESENTANTE DA EMBARCAÇÃO OU DO AGENTE DE NAVEGAÇÃO\nASSINATURA: ____________________________________________\n\nRESPONSÁVEL PELA UNIDADE CONTROLADORA\nNOME: __________________________________________________\nCPF: __________________________________________________';
+const assinaturas = 'RESPONSÁVEL PELA EMPRESA COLETORA \n\nNOME: __________________________________________________\n\nCPF: __________________________________________________\n\n\nREPRESENTANTE DA EMBARCAÇÃO OU DO AGENTE DE NAVEGAÇÃO\n\nASSINATURA: ____________________________________________\n\n\nRESPONSÁVEL PELA UNIDADE CONTROLADORA\n\nNOME: __________________________________________________\n\nCPF: __________________________________________________';
 
 doc.fontSize(7).text(assinaturas, 30);
 doc.end();
